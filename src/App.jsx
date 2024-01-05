@@ -1,4 +1,5 @@
 import "./App.css";
+import Banner from "./Pages/Banner/Banner";
 import Navbar from "./Pages/Navbar/Navbar";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     return (
         <div className="min-h-screen max-w-7xl mx-auto">
             <Navbar />
+            <Banner />
         </div>
     );
 }

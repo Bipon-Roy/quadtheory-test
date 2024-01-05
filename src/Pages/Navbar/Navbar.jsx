@@ -3,7 +3,7 @@ import { LuUser2 } from "react-icons/lu";
 const Navbar = () => {
     return (
         <div>
-            <nav className="flex justify-between items-center px-5 py-8">
+            <nav className="flex justify-between items-center py-8">
                 <div className="ml-6 lg:ml-0">
                     <p className="text-3xl font-black">pti.</p>
                 </div>
