@@ -1,0 +1,29 @@
+.arrow-style {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: url("path-to-your-arrow-icon.svg") no-repeat right center; /* Replace 'path-to-your-arrow-icon.svg' with the actual path to your arrow icon */
+    background-size: 18px; /* Adjust the size of the arrow icon */
+}
+
+/* Style the select dropdown to hide the default arrow */
+.arrow-style::-ms-expand {
+    display: none;
+}
+.arrow-style::-webkit-select {
+    padding-right: 25px; /* Adjust the padding to make space for the arrow icon */
+}
+
+/* Style the arrow icon color */
+.arrow-style::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 8px; /* Adjust the distance from the right side */
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 6px 0;
+    border-color: #fd6011; /* Replace #your-arrow-color with the desired color code */
+    transform: translateY(-50%) rotate(180deg);
+}

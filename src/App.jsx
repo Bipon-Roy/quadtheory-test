@@ -1,26 +1,20 @@
 import "./App.css";
-import useData from "./Hook/useData";
+import Navbar from "./Pages/Navbar/Navbar";
 
 function App() {
-    const { data, loading } = useData();
-    console.log(data, loading);
-    if (loading) {
-        return (
-            <div className="flex justify-center items-center">
-                <span className="loading loading-bars loading-lg"></span>
-            </div>
-        );
-    }
+    // const { data, loading } = useData();
+
+    // if (loading) {
+    //     return (
+    //         <div className="flex justify-center items-center">
+    //             <span className="loading loading-bars loading-lg"></span>
+    //         </div>
+    //     );
+    // }
     return (
-        <>
-            {data.length && (
-                <div>
-                    {data.map((item) => (
-                        <p key={item.Id}>{item?.Name}</p>
-                    ))}
-                </div>
-            )}
-        </>
+        <div className="min-h-screen max-w-7xl mx-auto">
+            <Navbar />
+        </div>
     );
 }
 
