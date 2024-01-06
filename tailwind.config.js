@@ -7,6 +7,7 @@ export default {
                 primary: "#F99F1C",
                 secondary: "#FD6011",
                 mainBg: "#EEEFF0",
+                textMain: "#0C1B2B",
             },
         },
     },
