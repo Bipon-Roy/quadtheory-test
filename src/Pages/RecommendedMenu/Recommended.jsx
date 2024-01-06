@@ -40,8 +40,8 @@ const Recommended = () => {
         }
     };
     return (
-        <div className="mt-10 mx-6 lg:mx-0">
-            <div className="flex justify-between mb-3">
+        <div className="mt-10">
+            <div className="flex justify-between mb-3 mx-4 lg:mx-0">
                 <div>
                     <p className="text-textMain text-xl">Recommended</p>
                 </div>
@@ -63,20 +63,18 @@ const Recommended = () => {
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 className="mySwiper"
                 loop={true}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log("slide change")}
                 navigation={{
                     prevEl: ".button-prev",
                     nextEl: ".button-next",
                 }}
                 breakpoints={{
                     375: {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
+                        slidesPerView: 3,
+                        spaceBetween: 0,
                     },
                     768: {
-                        slidesPerView: 3,
-                        spaceBetween: 16,
+                        slidesPerView: 4,
+                        spaceBetween: 0,
                     },
                     1024: {
                         slidesPerView: 5,
@@ -86,7 +84,7 @@ const Recommended = () => {
                 ref={swiperRef}
             >
                 {sortedMenu.map((item) => (
-                    <SwiperSlide key={item.Id}>
+                    <SwiperSlide className="ml-4 lg:ml-0" key={item.Id}>
                         <FoodCard img={item.ImageUrl} title={item.Name}></FoodCard>
                     </SwiperSlide>
                 ))}

@@ -6,7 +6,7 @@ import Recommended from "./Pages/RecommendedMenu/Recommended";
 
 function App() {
     return (
-        <div className="min-h-screen max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto">
             <Navbar />
             <Banner />
             <PopularMenu />
