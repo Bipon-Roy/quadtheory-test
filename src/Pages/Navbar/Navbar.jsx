@@ -8,10 +8,10 @@ const Navbar = () => {
                     <p className="text-3xl font-black">pti.</p>
                 </div>
                 <div className="flex gap-4">
-                    <div className="form-control lg:w-[550px]">
+                    <div className="lg:w-[550px]">
                         <input
                             type="text"
-                            placeholder="Your Name"
+                            placeholder="Search Audiobook"
                             className="input w-full focus:outline-none"
                             required
                         />

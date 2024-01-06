@@ -20,7 +20,7 @@ const Recommended = () => {
     if (loading) {
         return (
             <div className="flex items-center justify-center">
-                <span className="loading loading-bars loading-lg"></span>
+                <span className="">Please Wait...</span>
             </div>
         );
     }
@@ -40,7 +40,7 @@ const Recommended = () => {
         }
     };
     return (
-        <div className="mt-10">
+        <div className="mt-10 lg:pb-32">
             <div className="flex justify-between mb-3 mx-4 lg:mx-0">
                 <div>
                     <p className="text-textMain text-xl">Recommended</p>
