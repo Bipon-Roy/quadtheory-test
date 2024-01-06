@@ -3,7 +3,7 @@ import useData from "../../Hook/useData";
 import FoodCard from "../../Components/FoodCard";
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles

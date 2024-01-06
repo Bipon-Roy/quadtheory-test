@@ -1,7 +1,7 @@
 const FoodCard = ({ img, title }) => {
     return (
         <div>
-            <div className="h-[300px] shadow-md shadow-black rounded-xl">
+            <div className="h-[300px] shadow-md shadow-textMain rounded-xl">
                 <img className="rounded-xl h-full w-full object-cover" src={img} alt={title} />
             </div>
 

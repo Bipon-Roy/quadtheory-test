@@ -1,7 +1,8 @@
 import "./App.css";
 import Banner from "./Pages/Banner/Banner";
-import PopularMenu from "./Pages/Menu/PopularMenu";
+import PopularMenu from "./Pages/PopularMenu/PopularMenu";
 import Navbar from "./Pages/Navbar/Navbar";
+import Recommended from "./Pages/RecommendedMenu/Recommended";
 
 function App() {
     return (
@@ -9,6 +10,7 @@ function App() {
             <Navbar />
             <Banner />
             <PopularMenu />
+            <Recommended />
         </div>
     );
 }
