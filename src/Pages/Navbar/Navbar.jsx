@@ -5,7 +5,7 @@ import { IoSearch } from "react-icons/io5";
 const Navbar = () => {
     return (
         <div>
-            <nav className="flex justify-around md:justify-between items-center py-5 md:py-8 mx-3 md:mx-6 lg:mx-0 border-b-2">
+            <nav className="flex justify-around md:justify-between items-center py-5 md:py-8 mx-3 md:mx-6 lg:mx-0 border-b-2 md:border-none">
                 <div>
                     <p className="text-xl md:text-3xl font-black">pti.</p>
                 </div>

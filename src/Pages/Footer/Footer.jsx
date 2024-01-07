@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="bg-primary pb-14 mt-24">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between">
-                <div className="md:ml-4 lg:ml-0">
+                <div className="md:ml-5 lg:ml-8">
                     <div className="md:w-[400px] lg:w-[580px] relative mt-14 mx-4 md:mx-0">
                         <input
                             type="text"
@@ -24,7 +24,7 @@ const Footer = () => {
                     </div>
                     <div className="mt-12 md:w-[480px] lg:w-[650px]">
                         <div className="mt-5 flex flex-col md:flex-row md:justify-between">
-                            <div className="order-2 md:order-none mt-8 space-y-4">
+                            <div className="order-2 md:order-none mt-8 space-y-6">
                                 <p className="text-3xl font-black opacity-90 text-center md:text-left">
                                     pti<span className="text-secondary">.</span>
                                 </p>

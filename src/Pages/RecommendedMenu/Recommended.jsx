@@ -44,8 +44,17 @@ const Recommended = () => {
             </div>
         );
     }
+
+    const recommendMenu = data.filter((item) => item.IsRecommended === true);
     //rearrange menu item according to design
-    const sortedMenu = [data[1], data[6], data[3], data[7], data[5], data[0], data[4], data[2]];
+    const sortedMenu = [
+        recommendMenu[1],
+        recommendMenu[4],
+        recommendMenu[2],
+        recommendMenu[5],
+        recommendMenu[3],
+        recommendMenu[0],
+    ];
 
     //Added prev and next slider button functionality
     const handlePrevSlide = () => {

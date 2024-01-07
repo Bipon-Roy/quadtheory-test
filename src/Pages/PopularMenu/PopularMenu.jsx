@@ -16,8 +16,7 @@ import Form from "../../Components/Form";
 
 const PopularMenu = () => {
     const swiperRef = useRef(null);
-    const { data, loading } = useData();
-
+    const { data, loading, addedMenuList } = useData();
     const [prevButtonDisabled, setPrevButtonDisabled] = useState(true);
     const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
@@ -46,8 +45,19 @@ const PopularMenu = () => {
         );
     }
     //rearrange menu item according to design
-    const sortedMenu = [data[4], data[2], data[3], data[7], data[5], data[0], data[1], data[6]];
-
+    const popularMenu = data.filter((item) => item.IsPopular === true);
+    const sortedMenu = [
+        popularMenu[4],
+        popularMenu[2],
+        popularMenu[3],
+        popularMenu[7],
+        popularMenu[5],
+        popularMenu[0],
+        popularMenu[1],
+        popularMenu[6],
+    ];
+    console.log(sortedMenu);
+    const renderMenu = [...addedMenuList, ...sortedMenu];
     //Added prev and next slider button functionality
     const handlePrevSlide = () => {
         if (swiperRef.current && swiperRef.current.swiper) {
@@ -133,7 +143,7 @@ const PopularMenu = () => {
                 }}
                 ref={swiperRef}
             >
-                {sortedMenu.map((item) => (
+                {renderMenu.map((item) => (
                     <SwiperSlide className="ml-4 lg:ml-0" key={item.Id}>
                         <FoodCard img={item.ImageUrl} title={item.Name}></FoodCard>
                     </SwiperSlide>

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const FoodCard = ({ img, title }) => {
     return (
         <div>
@@ -12,4 +14,8 @@ const FoodCard = ({ img, title }) => {
     );
 };
 
+FoodCard.propTypes = {
+    img: PropTypes.string,
+    title: PropTypes.string.isRequired,
+};
 export default FoodCard;

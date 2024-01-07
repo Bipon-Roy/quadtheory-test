@@ -1,6 +1,10 @@
 import { useForm } from "react-hook-form";
+import useData from "../Hook/useData";
+import { useState } from "react";
 
 const Form = () => {
+    const { addedMenuList, setAddedMenuList } = useData();
+    const [id, setId] = useState(0);
     const {
         register,
         handleSubmit,
@@ -8,14 +12,19 @@ const Form = () => {
 
         formState: { errors },
     } = useForm();
+
     const onSubmit = (data) => {
         const name = data.name;
         const price = data.price;
         const photoUrl = data.photoUrl;
 
-        const itemData = { name, price, photoUrl };
-        console.log(itemData);
+        const itemData = { Id: id, Name: name, Price: price, ImageUrl: photoUrl };
+        const addedMenu = [...addedMenuList, itemData];
+        setAddedMenuList(addedMenu);
+        setId(id + 1);
+        reset();
     };
+
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className="p-5">
