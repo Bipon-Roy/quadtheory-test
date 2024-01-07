@@ -76,7 +76,7 @@ const Recommended = () => {
             </dialog>
             <div className="flex justify-between mb-3 mx-4 lg:mx-0">
                 <div>
-                    <p className="text-textMain text-xl">Recommended</p>
+                    <p className="font-medium lg:font-normal text-textMain text-xl ">Recommended</p>
                 </div>
                 <div className="flex gap-1">
                     <button
@@ -90,7 +90,7 @@ const Recommended = () => {
                         <button
                             className={`${
                                 prevButtonDisabled === true ? "text-gray-400" : "text-black"
-                            }`}
+                            } hidden md:block`}
                             onClick={handlePrevSlide}
                             disabled={prevButtonDisabled}
                         >
@@ -99,7 +99,7 @@ const Recommended = () => {
                         <button
                             className={`${
                                 nextButtonDisabled === true ? "text-gray-400" : "text-black"
-                            }`}
+                            } opacity-60 md:opacity-100`}
                             onClick={handleNextSlide}
                             disabled={nextButtonDisabled}
                         >

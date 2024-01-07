@@ -62,7 +62,7 @@ const PopularMenu = () => {
     };
 
     return (
-        <div className="mt-16">
+        <div className="mt-24">
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
             <dialog id="my_modal_3" className="modal">
                 <div className="modal-box">
@@ -77,7 +77,7 @@ const PopularMenu = () => {
             </dialog>
             <div className="flex justify-between mb-3 mx-4 lg:mx-0">
                 <div>
-                    <p className="text-textMain text-xl">Popular</p>
+                    <p className="text-textMain font-medium lg:font-normal text-xl">Popular</p>
                 </div>
                 <div className="flex gap-1">
                     <button
@@ -91,7 +91,7 @@ const PopularMenu = () => {
                         <button
                             className={`${
                                 prevButtonDisabled === true ? "text-gray-400" : "text-black"
-                            }`}
+                            } hidden md:block`}
                             onClick={handlePrevSlide}
                             disabled={prevButtonDisabled}
                         >
@@ -100,7 +100,7 @@ const PopularMenu = () => {
                         <button
                             className={`${
                                 nextButtonDisabled === true ? "text-gray-400" : "text-black"
-                            }`}
+                            } opacity-60 md:opacity-100`}
                             onClick={handleNextSlide}
                             disabled={nextButtonDisabled}
                         >
