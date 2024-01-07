@@ -1,37 +1,57 @@
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { LuUser2 } from "react-icons/lu";
+import { IoSearch } from "react-icons/io5";
+
 const Navbar = () => {
     return (
         <div>
-            <nav className="flex justify-between items-center py-8 mx-6 lg:mx-0">
-                <div className="ml-6 md:ml-0">
-                    <p className="text-3xl font-black">pti.</p>
+            <nav className="flex justify-around md:justify-between items-center py-5 md:py-8 mx-3 md:mx-6 lg:mx-0 border-b-2">
+                <div>
+                    <p className="text-xl md:text-3xl font-black">pti.</p>
                 </div>
-                <div className="flex gap-4">
-                    <div className="lg:w-[550px]">
+                <div className="flex gap-[6px] md:gap-4">
+                    <div className="w-[190px] lg:w-[550px] relative">
                         <input
                             type="text"
                             placeholder="Search Audiobook"
-                            className="input w-full focus:outline-none"
+                            className="input w-full focus:outline-none pl-10 md:pl-12"
                             required
                         />
-                    </div>
-                    {/* Todo: Complete the menu style */}
-                    <div className="form-control relative">
-                        <select
-                            required
-                            className="input rounded-lg pl-4 pr-20 border-none font-semibold text-[#012a4a] focus:outline-none"
-                        >
-                            <option value="">MENU</option>
-                            <option value="Employee">Employee</option>
-                            <option value="HR">HR</option>
-                        </select>
-                        <span className="absolute right-1 top-2">
-                            <MdOutlineKeyboardArrowDown className="text-3xl text-secondary opacity-80" />
+                        <span className="absolute left-2 top-3 opacity-50">
+                            <IoSearch className="text-secondary text-2xl" />
                         </span>
                     </div>
+
+                    <div className="form-control relative">
+                        <details className="dropdown">
+                            <summary className="btn px-0 w-36 md:w-40 pl-3 bg-white flex justify-between text-[#11263C] opacity-95 font-extrabold hover:border-none hover:bg-white">
+                                MENU
+                                <MdOutlineKeyboardArrowDown className="text-3xl text-secondary opacity-80" />
+                            </summary>
+                            <ul className="p-1 shadow dropdown-content z-[1] bg-white rounded-xl w-36 md:w-40">
+                                <li className="text-[#11263C] opacity-75 font-medium text-sm cursor-pointer p-1 hover:bg-mainBg hover:text-secondary">
+                                    <a>Home</a>
+                                </li>
+                                <li className="text-[#11263C] opacity-75 font-medium text-sm cursor-pointer p-1 hover:bg-mainBg hover:text-secondary">
+                                    <a>Details</a>
+                                </li>
+                                <li className="text-[#11263C] opacity-75 font-medium text-sm cursor-pointer p-1 hover:bg-mainBg hover:text-secondary">
+                                    <a>Category</a>
+                                </li>
+                                <li className="text-[#11263C] opacity-75 font-medium text-sm cursor-pointer p-1 hover:bg-mainBg hover:text-secondary">
+                                    <a>My Favorites</a>
+                                </li>
+                                <li className="text-[#11263C] opacity-75 font-medium text-sm cursor-pointer p-1 hover:bg-mainBg hover:text-secondary">
+                                    <a>Profile</a>
+                                </li>
+                                <li className="text-[#11263C] opacity-75 font-medium text-sm cursor-pointer p-1 hover:bg-mainBg hover:text-secondary">
+                                    <a>Log In/Sign Up</a>
+                                </li>
+                            </ul>
+                        </details>
+                    </div>
                 </div>
-                <div className="bg-secondary p-3 rounded-full">
+                <div className="bg-secondary p-3 rounded-full hidden md:block">
                     <span>
                         <LuUser2 className="text-2xl text-white" />
                     </span>
