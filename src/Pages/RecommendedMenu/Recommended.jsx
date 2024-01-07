@@ -11,11 +11,31 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Form from "../../Components/Form";
 
 const Recommended = () => {
     const swiperRef = useRef(null);
     const { data, loading } = useData();
+    const [prevButtonDisabled, setPrevButtonDisabled] = useState(true);
+    const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
+
+    useEffect(() => {
+        const swiperInstance = swiperRef.current && swiperRef.current.swiper;
+
+        if (swiperInstance) {
+            swiperInstance.on("slideChange", () => {
+                const currentIndex = swiperInstance.activeIndex;
+                const totalSlides = swiperInstance.slides.length;
+                const slidesPerView = swiperInstance.params.slidesPerView;
+
+                // Enable/disable buttons based on slide position and slides per view
+                setPrevButtonDisabled(currentIndex === 0);
+                setNextButtonDisabled(currentIndex + slidesPerView >= totalSlides);
+            });
+        }
+    }, [data]);
+
     // showing loading state until data fetching is completed
     if (loading) {
         return (
@@ -39,20 +59,50 @@ const Recommended = () => {
             swiperRef.current.swiper.slideNext();
         }
     };
+
     return (
         <div className="mt-10 lg:pb-32">
+            {/* You can open the modal using document.getElementById('ID').showModal() method */}
+            <dialog id="my_modal_3" className="modal">
+                <div className="modal-box">
+                    <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                            ✕
+                        </button>
+                    </form>
+                    <Form />
+                </div>
+            </dialog>
             <div className="flex justify-between mb-3 mx-4 lg:mx-0">
                 <div>
                     <p className="text-textMain text-xl">Recommended</p>
                 </div>
                 <div className="flex gap-1">
-                    <button className="font-medium text-secondary">AddMore</button>
+                    <button
+                        onClick={() => document.getElementById("my_modal_3").showModal()}
+                        className="font-medium text-secondary"
+                    >
+                        AddMore
+                    </button>
 
                     <div className="flex">
-                        <button onClick={handlePrevSlide}>
+                        <button
+                            className={`${
+                                prevButtonDisabled === true ? "text-gray-400" : "text-black"
+                            }`}
+                            onClick={handlePrevSlide}
+                            disabled={prevButtonDisabled}
+                        >
                             <IoIosArrowBack className="text-xl" />
                         </button>
-                        <button onClick={handleNextSlide}>
+                        <button
+                            className={`${
+                                nextButtonDisabled === true ? "text-gray-400" : "text-black"
+                            }`}
+                            onClick={handleNextSlide}
+                            disabled={nextButtonDisabled}
+                        >
                             <IoIosArrowForward className="text-xl" />
                         </button>
                     </div>
