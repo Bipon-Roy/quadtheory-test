@@ -11,12 +11,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+
 import { useEffect, useRef, useState } from "react";
-import Form from "../../Components/Form";
+import AddMenuForm from "../../Components/AddMenuForm";
 
 const PopularMenu = () => {
     const swiperRef = useRef(null);
-    const { data, loading, addedMenuList } = useData();
+
+    const { data, loading, addedPopularList } = useData();
     const [prevButtonDisabled, setPrevButtonDisabled] = useState(true);
     const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
@@ -44,8 +46,11 @@ const PopularMenu = () => {
             </div>
         );
     }
-    //rearrange menu item according to design
+
+    //filtering popular menu only
     const popularMenu = data.filter((item) => item.IsPopular === true);
+
+    //rearrange menu item according to design
     const sortedMenu = [
         popularMenu[4],
         popularMenu[2],
@@ -56,8 +61,9 @@ const PopularMenu = () => {
         popularMenu[1],
         popularMenu[6],
     ];
-    console.log(sortedMenu);
-    const renderMenu = [...addedMenuList, ...sortedMenu];
+
+    const renderMenu = [...addedPopularList, ...sortedMenu];
+
     //Added prev and next slider button functionality
     const handlePrevSlide = () => {
         if (swiperRef.current && swiperRef.current.swiper) {
@@ -82,7 +88,7 @@ const PopularMenu = () => {
                             ✕
                         </button>
                     </form>
-                    <Form />
+                    <AddMenuForm />
                 </div>
             </dialog>
             <div className="flex justify-between mb-3 mx-4 lg:mx-0">

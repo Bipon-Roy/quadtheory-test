@@ -7,7 +7,10 @@ export const DataContext = createContext(null);
 const DataProvider = ({ children }) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [addedMenuList, setAddedMenuList] = useState([]);
+
+    const [addedPopularList, setAddedPopularList] = useState([]);
+    const [addedRecommendList, setAddedRecommendList] = useState([]);
+
     useEffect(() => {
         axios
             .get("http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
@@ -21,7 +24,14 @@ const DataProvider = ({ children }) => {
             });
     }, []);
 
-    const result = { data, loading, addedMenuList, setAddedMenuList };
+    const result = {
+        data,
+        loading,
+        addedRecommendList,
+        setAddedRecommendList,
+        addedPopularList,
+        setAddedPopularList,
+    };
     return <DataContext.Provider value={result}>{children}</DataContext.Provider>;
 };
 DataProvider.propTypes = {

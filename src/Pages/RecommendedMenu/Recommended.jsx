@@ -12,14 +12,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { useEffect, useRef, useState } from "react";
-import Form from "../../Components/Form";
+import AddMenuForm from "../../Components/AddMenuForm";
 
 const Recommended = () => {
     const swiperRef = useRef(null);
-    const { data, loading } = useData();
+    const { data, loading, addedRecommendList } = useData();
     const [prevButtonDisabled, setPrevButtonDisabled] = useState(true);
     const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
+    console.log(addedRecommendList);
     useEffect(() => {
         const swiperInstance = swiperRef.current && swiperRef.current.swiper;
 
@@ -45,6 +46,7 @@ const Recommended = () => {
         );
     }
 
+    //filtering recommended menu only
     const recommendMenu = data.filter((item) => item.IsRecommended === true);
     //rearrange menu item according to design
     const sortedMenu = [
@@ -55,6 +57,8 @@ const Recommended = () => {
         recommendMenu[3],
         recommendMenu[0],
     ];
+
+    const renderMenu = [...addedRecommendList, ...sortedMenu];
 
     //Added prev and next slider button functionality
     const handlePrevSlide = () => {
@@ -72,7 +76,7 @@ const Recommended = () => {
     return (
         <div className="mt-10 lg:pb-32">
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="my_modal_3" className="modal">
+            <dialog id="my_modal_8" className="modal">
                 <div className="modal-box">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
@@ -80,7 +84,7 @@ const Recommended = () => {
                             ✕
                         </button>
                     </form>
-                    <Form />
+                    <AddMenuForm />
                 </div>
             </dialog>
             <div className="flex justify-between mb-3 mx-4 lg:mx-0">
@@ -89,7 +93,7 @@ const Recommended = () => {
                 </div>
                 <div className="flex gap-1">
                     <button
-                        onClick={() => document.getElementById("my_modal_3").showModal()}
+                        onClick={() => document.getElementById("my_modal_8").showModal()}
                         className="font-medium text-secondary"
                     >
                         AddMore
@@ -142,7 +146,7 @@ const Recommended = () => {
                 }}
                 ref={swiperRef}
             >
-                {sortedMenu.map((item) => (
+                {renderMenu.map((item) => (
                     <SwiperSlide className="ml-4 lg:ml-0" key={item.Id}>
                         <FoodCard img={item.ImageUrl} title={item.Name}></FoodCard>
                     </SwiperSlide>
