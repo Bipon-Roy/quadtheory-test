@@ -20,7 +20,7 @@ const AddMenuForm = () => {
         const photoUrl = data.photoUrl;
         const isPopular = data.popular;
         const isRecommended = data.recommended;
-        console.log(isPopular, isRecommended);
+
         const itemData = {
             Id: id,
             Name: name,
@@ -41,9 +41,6 @@ const AddMenuForm = () => {
             setId(id + 1);
         }
         reset();
-
-        console.log("Popular:", addedPopularList);
-        console.log("Recommend:", addedRecommendList);
     };
 
     return (

@@ -20,7 +20,6 @@ const Recommended = () => {
     const [prevButtonDisabled, setPrevButtonDisabled] = useState(true);
     const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
-    console.log(addedRecommendList);
     useEffect(() => {
         const swiperInstance = swiperRef.current && swiperRef.current.swiper;
 

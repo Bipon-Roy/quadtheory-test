@@ -10,7 +10,7 @@ const Navbar = () => {
                     <p className="text-xl md:text-3xl font-black">pti.</p>
                 </div>
                 <div className="flex gap-[6px] md:gap-4">
-                    <div className="w-[190px] lg:w-[550px] relative">
+                    <div className="w-[190px] md:w-[280px] lg:w-[550px] relative">
                         <input
                             type="text"
                             placeholder="Search Audiobook"

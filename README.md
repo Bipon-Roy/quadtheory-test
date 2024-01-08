@@ -1,7 +1,3 @@
-## Live Preview
-
-[Live Link](https://bipon-roy.netlify.app/)
-
 ## Development Environment Setup Guide
 
 Download the [NodeJS](https://nodejs.org/en) and install it.
